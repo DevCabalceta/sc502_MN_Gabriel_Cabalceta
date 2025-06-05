@@ -1,0 +1,79 @@
+body, html {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: url(../images/fondo.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.515);
+    padding: 40px;
+    border-radius: 12px;
+    width: 300px;
+    max-width: 400px;
+    text-align: center;
+    border-left: 8px solid rgba(0, 0, 255, 0.682);
+}
+
+.login-icon{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 5px;
+}
+.margin-login {
+    margin: 15px;
+}
+form label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: bolder;
+}
+
+form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.648);
+}
+
+form input:focus {
+    border:none;
+}
+.reseteo {
+    display: flex;
+    justify-content: end;
+    text-decoration: none;
+    color: blue;
+    font-size: 15px;
+}
+.iniciar {
+    display: block;
+    margin: 12px;
+    background-color: rgb(32, 32, 222);
+    color: white;
+    border-radius: 12px;
+    border: none;
+    width: 100%;
+    padding: 12px;
+}
+
+.iniciar:hover {
+    cursor: pointer;
+    box-shadow: 2px 0 8px rgb(0, 0, 255);
+}
+

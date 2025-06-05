@@ -1,0 +1,45 @@
+*{
+    background-color: rgb(255, 255, 246);
+}
+
+h1 {
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+}
+
+p {
+    text-align: center;
+    width: 30%;
+    display: inline-block;
+    padding: 20px;
+    margin-top: 40px;
+    border: solid 2px #1308b0;
+    border-radius: 20px;
+}
+
+#first {
+    color: #1308b0;
+}
+#second {
+    color: #05890e;
+}
+#last {
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.container img {
+    width: 100%;
+    
+}
+.image {
+    width: 30%;
+}
