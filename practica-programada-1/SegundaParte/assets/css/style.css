@@ -1,0 +1,162 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f8ff;
+  color: #333;
+  line-height: 1.6;
+  padding-bottom: 40px;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #0077cc;
+  padding: 1rem 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-logo {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #aee1ff;
+}
+
+/* Perfil del Doctor */
+.perfil-doctor {
+  border-top: 5px solid #0077cc;
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 119, 204, 0.1);
+  text-align: center;
+}
+
+.nombre-doctor {
+  font-size: 2rem;
+  color: #005f99;
+  margin-bottom: 10px;
+}
+
+.especialidad {
+  font-style: italic;
+  color: #0077cc;
+  margin-bottom: 20px;
+}
+
+#descripcion-doctor {
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.btn-agendar {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-agendar:hover {
+  background-color: #005f99;
+}
+
+/* Comentarios */
+.comentarios {
+  max-width: 1000px;
+  margin: 60px auto 20px;
+  padding: 0 20px;
+}
+
+.tarjetas-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.tarjeta {
+  background-color: #ffffff;
+  padding: 20px;
+  border-left: 5px solid #0077cc;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 119, 204, 0.1);
+  transition: transform 0.2s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+}
+
+.tarjeta h3 {
+  color: #0077cc;
+  margin-bottom: 10px;
+}
+
+.tarjeta p {
+  margin-bottom: 10px;
+}
+
+.tarjeta small {
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    text-align: right;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tarjetas-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .perfil-doctor {
+    padding: 20px;
+  }
+}
