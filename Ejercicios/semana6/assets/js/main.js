@@ -1,166 +1,99 @@
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Cargo mi pagina');
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Página cargada correctamente');
 
-    cargarTajetas();
-
-    const btn = document.querySelector('#btn_crear_tarjeta');
-
-    btn.addEventListener('click', crearTarjeta);
-
+    inicializarTarjetas();
+    document.querySelector('#btn_crear_tarjeta').addEventListener('click', manejarCrearTarjeta);
 });
 
-let tarjetas  = [
-    { 
-        titulo: 'Titulo 1', 
-        descripcion: 'Some quick example text to build on the card title and make up the bulk of the card’s content.',
-        boton: 'Button text',
+// Lista de tarjetas (puede venir de localStorage o usar esta como base)
+let tarjetas = [
+    {
+        titulo: 'Titulo 1',
+        descripcion: 'Descripción ejemplo para la tarjeta 1.',
+        boton: 'Ver más',
         imagen: 'https://generacionxbox.com/wp-content/uploads/2025/02/dinamy_wallpaper_xbox_2025.jpg'
     },
     {
         titulo: 'Titulo 2',
-        descripcion: 'Some quick example text to build on the card title and make up the bulk of the card’s content.',
-        boton: 'Button text',
+        descripcion: 'Descripción ejemplo para la tarjeta 2.',
+        boton: 'Ver más',
         imagen: 'https://generacionxbox.com/wp-content/uploads/2025/02/dinamy_wallpaper_xbox_2025.jpg'
     },
     {
         titulo: 'Titulo 3',
-        descripcion: 'Some quick example text to build on the card title and make up the bulk of the card’s content.',
-        boton: 'Button text',
+        descripcion: 'Descripción ejemplo para la tarjeta 3.',
+        boton: 'Ver más',
         imagen: 'https://generacionxbox.com/wp-content/uploads/2025/02/dinamy_wallpaper_xbox_2025.jpg'
     }
 ];
 
+/**
+ * Inicializa las tarjetas en la página, leyendo desde localStorage si existe.
+ */
+function inicializarTarjetas() {
+    const tarjetasGuardadas = localStorage.getItem('tarjetas');
 
-const crearTarjeta = () => {
-    console.log('mi funcion crear tarjeta')
+    if (tarjetasGuardadas) {
+        tarjetas = JSON.parse(tarjetasGuardadas);
+    } else {
+        localStorage.setItem('tarjetas', JSON.stringify(tarjetas));
+    }
 
+    renderizarTarjetas();
+}
+
+/**
+ * Maneja la creación de una nueva tarjeta cuando se da clic al botón.
+ */
+function manejarCrearTarjeta() {
     const form = document.querySelector('#formulario');
     const formData = new FormData(form);
+    const nuevaTarjeta = Object.fromEntries(formData.entries());
 
-    const entries = Object.fromEntries(formData.entries())
-    const { titulo, descripcion, boton, imagen} = entries;
-    const jsonEntries = JSON.stringify(entries);
-    const objectEntries = JSON.parse(jsonEntries)
-
-    const nuevaTarjeta = { titulo, descripcion, boton, imagen };
-
-    console.log(nuevaTarjeta);
+    // Validación básica
+    if (!nuevaTarjeta.titulo || !nuevaTarjeta.descripcion || !nuevaTarjeta.boton || !nuevaTarjeta.imagen) {
+        alert('Por favor completa todos los campos.');
+        return;
+    }
 
     tarjetas.push(nuevaTarjeta);
     localStorage.setItem('tarjetas', JSON.stringify(tarjetas));
-    form.reset();
-    cargarTajetas();
 
+    form.reset(); // Limpia el formulario
+    renderizarTarjetas();
 }
 
-const cargarTajetas = () => {
-    console.log('Llamando a mi funcion cargar tarjetas ...');
+/**
+ * Renderiza todas las tarjetas en la sección correspondiente.
+ */
+function renderizarTarjetas() {
+    const contenedor = document.querySelector('#tarjetas_section');
+    contenedor.innerHTML = ''; // Limpia el contenido anterior
 
-    const localStorageTarjetas = localStorage.getItem('tarjetas');
-    if(localStorageTarjetas == null){
-        localStorage.setItem('tarjetas', JSON.stringify(tarjetas))
-    } else {
-        const getTarjetas = localStorage.getItem('tarjetas');
-        tarjetas = JSON.parse(getTarjetas);
-    }
-
-    console.log(localStorageTarjetas);
-
-    const tarjetas_section = document.querySelector('#tarjetas_section');
-    console.log(tarjetas_section);
-
-    tarjetas_section.innerHTML = '';
-
-    let content = '';
-    tarjetas.forEach(tarjeta => {
-        console.log(tarjeta);
-
-        const { imagen, titulo, descripcion, boton } = tarjeta;
-
-        const col = document.createElement('div');
-        col.classList.add('col-4');
-        col.classList.add('mb-3');
-
-        col.innerHTML = `<div class="card" style="width: 18rem;">
-                            <img src="${imagen}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">${titulo}</h5>
-                                <p class="card-text">${descripcion}</p>
-                                <a href="#" class="btn btn-primary">${boton}</a>
-                            </div>
-                        </div>`;
-
-        tarjetas_section.append(col);
-
+    tarjetas.forEach(({ titulo, descripcion, boton, imagen }) => {
+        const tarjetaHTML = crearElementoTarjeta(titulo, descripcion, boton, imagen);
+        contenedor.appendChild(tarjetaHTML);
     });
-
-    // const elemento = document.createElement('div');
-    // tarjetas_section.append(content);
-
-
-
 }
 
+/**
+ * Crea un elemento DOM representando una tarjeta Bootstrap.
+ * @returns {HTMLElement} Elemento div con la tarjeta
+ */
+function crearElementoTarjeta(titulo, descripcion, boton, imagen) {
+    const columna = document.createElement('div');
+    columna.className = 'col-12 col-md-6 col-lg-4 mb-3';
 
+    columna.innerHTML = `
+        <div class="card h-100 shadow-sm">
+            <img src="${imagen}" class="card-img-top" alt="${titulo}">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">${titulo}</h5>
+                <p class="card-text flex-grow-1">${descripcion}</p>
+                <a href="#" class="btn btn-primary mt-auto">${boton}</a>
+            </div>
+        </div>
+    `;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const cargarTajetas = () => {
-//     console.log('Llamando a mi funcion cargar tarjetas ...');
-
-//     const tarjetas_section = document.querySelector('#tarjetas_section');
-//     console.log(tarjetas_section);
-
-//     tarjetas_section.innerHTML = '';
-
-//     let content = '';
-//     tarjetas.forEach(tarjeta => {
-//         console.log(tarjeta);
-
-//         const { imagen, titulo, descripcion, boton } = tarjeta;
-
-//         content += `<div class="col-4">
-//                         <div class="card" style="width: 18rem;">
-//                             <img src="${imagen}" class="card-img-top" alt="...">
-//                             <div class="card-body">
-//                                 <h5 class="card-title">${titulo}</h5>
-//                                 <p class="card-text">${descripcion}</p>
-//                                 <a href="#" class="btn btn-primary">${boton}</a>
-//                             </div>
-//                         </div>
-//                     </div>`;
-//     });
-
-//     // const elemento = document.createElement('div');
-//     // tarjetas_section.append(content);
-
-//     tarjetas_section.innerHTML = content;
-
-
-// }
+    return columna;
+}
