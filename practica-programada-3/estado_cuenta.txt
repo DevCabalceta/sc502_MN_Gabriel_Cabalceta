@@ -1,0 +1,42 @@
+ESTADO DE CUENTA
+
+ID: 1 | ahorros | ₡20,000.00
+ID: 2 | ahorros | ₡50,000.00
+ID: 3 | ahorros2 | ₡10,000.00
+ID: 4 | ahorros2 | ₡10,000.00
+ID: 5 | ahorros3 | ₡5,000.00
+
+Total de contado: ₡95,000.00
+Intereses (2.6%): ₡2,470.00
+Cashback (0.1%): ₡95.00
+Monto final a pagar: ₡97,375.00
+
+ESTADO DE CUENTA
+
+ID: 1 | ahorros | ₡20,000.00
+ID: 2 | ahorros | ₡50,000.00
+ID: 3 | ahorros2 | ₡10,000.00
+ID: 4 | ahorros2 | ₡10,000.00
+ID: 5 | ahorros3 | ₡5,000.00
+
+Total de contado: ₡95,000.00
+Intereses (2.6%): ₡2,470.00
+Cashback (0.1%): ₡95.00
+Monto final a pagar: ₡97,375.00
+
+ESTADO DE CUENTA
+
+ID: 1 | ahorros | ₡20,000.00
+ID: 2 | ahorros | ₡50,000.00
+ID: 3 | ahorros2 | ₡10,000.00
+ID: 4 | ahorros2 | ₡10,000.00
+ID: 5 | ahorros3 | ₡5,000.00
+ID: 6 | ahorros | ₡1,000.00
+ID: 7 | ahorros | ₡1,000.00
+ID: 8 | ahorros | ₡1,000.00
+
+Total de contado: ₡98,000.00
+Intereses (2.6%): ₡2,548.00
+Cashback (0.1%): ₡98.00
+Monto final a pagar: ₡100,450.00
+
