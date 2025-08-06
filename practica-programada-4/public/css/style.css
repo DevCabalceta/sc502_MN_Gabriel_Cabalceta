@@ -1,0 +1,15 @@
+body {
+    background: linear-gradient(to right, #f1f4ff, #dbe9ff);
+}
+
+.card {
+    border-radius: 1rem;
+}
+
+.btn-primary {
+    background-color: #0056b3;
+}
+
+h1 {
+    font-weight: bold;
+}
