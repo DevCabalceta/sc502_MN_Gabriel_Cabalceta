@@ -1,0 +1,1 @@
+// Reservado para futuras mejoras (fetch, toasts, etc.).
